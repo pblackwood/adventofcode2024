@@ -11,12 +11,7 @@ fun main() {
     readInputs("Day01.txt")
     left.sort()
     right.sort()
-    var result = 0
-    left.forEachIndexed { index, value ->
-        result += abs(value - right[index])
-//        println("$index $value ${right[index]} ${abs(value - right[index])}")
-    }
-    println(result)
+    println(left.foldIndexed(0) { index, acc, value -> acc + abs(value - right[index]) })
 }
 
 fun readInputs(fileName: String) {
